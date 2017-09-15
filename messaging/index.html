@@ -99,10 +99,19 @@ limitations under the License.
   // [START get_messaging_object]
   // Retrieve Firebase Messaging object.
   const messaging = firebase.messaging();
+  messaging.requestPermission()
+.then(function() {
+  console.log('Notification permission granted.');
+  // TODO(developer): Retrieve an Instance ID token for use with FCM.
+  // ...
+})
+.catch(function(err) {
+  console.log('Unable to get permission to notify.', err);
+});
   // [END get_messaging_object]
 
   // IDs of divs that display Instance ID token UI or request permission UI.
-  const tokenDivId = 'token_div';
+  /*const tokenDivId = 'token_div';
   const permissionDivId = 'permission_div';
 
   // [START refresh_token]
@@ -283,7 +292,7 @@ limitations under the License.
     showHideDiv(permissionDivId, true);
   }
 
-  resetUI();
+  resetUI();*/
 </script>
 </body>
 </html>
