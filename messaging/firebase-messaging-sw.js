@@ -1,8 +1,8 @@
 // Import and configure the Firebase SDK
 // These scripts are made available when the app is served or deployed on Firebase Hosting
 // If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup
-importScripts('https://www.gstatic.com/firebasejs/4.3.1/firebase.js');
-
+/*importScripts('https://www.gstatic.com/firebasejs/3.4.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/3.4.0/firebase-messaging.js');
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyDvdO9PkZe5RQGU7_gY_w3ApNzeUZI9nTI",
@@ -14,11 +14,16 @@ importScripts('https://www.gstatic.com/firebasejs/4.3.1/firebase.js');
   };
   firebase.initializeApp(config);
 
-const messaging = firebase.messaging();
+const messaging = firebase.messaging();*/
 
-/**
- * Here is is the code snippet to initialize Firebase Messaging in the Service
- * Worker when your app is not hosted on Firebase Hosting.
+var config = {
+    apiKey: "AIzaSyDvdO9PkZe5RQGU7_gY_w3ApNzeUZI9nTI",
+    authDomain: "sport-test-push.firebaseapp.com",
+    databaseURL: "https://sport-test-push.firebaseio.com",
+    projectId: "sport-test-push",
+    storageBucket: "sport-test-push.appspot.com",
+    messagingSenderId: "461249772176"
+  };
 
  // [START initialize_firebase_in_sw]
  // Give the service worker access to Firebase Messaging.
@@ -29,9 +34,7 @@ const messaging = firebase.messaging();
 
  // Initialize the Firebase app in the service worker by passing in the
  // messagingSenderId.
- firebase.initializeApp({
-   'messagingSenderId': 'YOUR-SENDER-ID'
- });
+ firebase.initializeApp(config);
 
  // Retrieve an instance of Firebase Messaging so that it can handle background
  // messages.
