@@ -1,9 +1,18 @@
 // Import and configure the Firebase SDK
 // These scripts are made available when the app is served or deployed on Firebase Hosting
 // If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup
-importScripts('/__/firebase/3.9.0/firebase-app.js');
-importScripts('/__/firebase/3.9.0/firebase-messaging.js');
-importScripts('/__/firebase/init.js');
+importScripts('https://www.gstatic.com/firebasejs/4.3.1/firebase.js');
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDvdO9PkZe5RQGU7_gY_w3ApNzeUZI9nTI",
+    authDomain: "sport-test-push.firebaseapp.com",
+    databaseURL: "https://sport-test-push.firebaseio.com",
+    projectId: "sport-test-push",
+    storageBucket: "sport-test-push.appspot.com",
+    messagingSenderId: "461249772176"
+  };
+  firebase.initializeApp(config);
 
 const messaging = firebase.messaging();
 
